@@ -1,5 +1,6 @@
 # Rock Paper Scissors
- Pedra papel tesoura - Projeto The Odin Project
+ Pedra papel tesoura - Projeto The Odin Project <br>
+ 
 Test 1
 ![sample1](https://user-images.githubusercontent.com/71563862/201814109-2036c04e-9ec4-4cfe-a6df-e284576b38d9.gif)
 
