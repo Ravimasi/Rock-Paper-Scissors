@@ -1,4 +1,9 @@
-  function getComputerChoice(any){
+  const computerSelection = getComputerChoice();
+  let i = 0
+  let humanScore = 0
+  let robotScore = 0
+  
+  function getComputerChoice(){
     const randomNumber = (Math.random()*10).toFixed(2);
     const robotNumber = parseFloat(randomNumber);
     console.log(robotNumber)
@@ -13,47 +18,62 @@
     }
     
   }
-  
-  const computerSelection = getComputerChoice();
-  let humanScore = 0
-  let robotScore = 0
-  
+  const arrayResult = []
   function playRound(playerSelection, computerSelection){
     if(playerSelection.toUpperCase() === computerSelection.toUpperCase()){
-      console.log("Thats a tie!")
+      arrayResult.push("Thats a tie!")
     }
     else if(playerSelection.toUpperCase() == "PAPER" & computerSelection.toUpperCase() == "ROCK"){
-      console.log("You've won! Congratulations")
-      humanScore += 1;
+      arrayResult.push("You've won 1point! Congratulations")
+      humanScore ++;
     }
     else if(playerSelection.toUpperCase() == "ROCK" & computerSelection.toUpperCase() == "SCISSORS"){
-      console.log("You've won! Congratulations")
-      humanScore += 1;
+      arrayResult.push("You've won 1 point! Congratulations")
+      humanScore ++;
     }
     else if(playerSelection.toUpperCase() == "SCISSORS" & computerSelection.toUpperCase() == "PAPER"){
-      console.log("You've won! Congratulations")
-      humanScore += 1;
+      arrayResult.push("You've won 1 point! Congratulations")
+      humanScore ++;
     }
     else{
-      console.log("You've lost, try again!")
-      robotScore +=1
+      console.log("Computer won 1 point!")
+      robotScore ++
     }
   }
-function game(){
-  for(let i = 0; i < 5; i++){
-    playRound(prompt(), getComputerChoice()); 
+function game(playerSelection){
+  
+    playRound(playerSelection, getComputerChoice()); 
     console.log(humanScore)
     console.log(robotScore)
-
-  }
+    document.getElementById("score-Balance").innerHTML = "Score : CPU " + robotScore + " | " + humanScore + " You";
+    
     if(humanScore > robotScore){
-      console.log("The human race has won!")
+     document.getElementById("result").innerHTML = "That's a win! +1 point. Score : CPU " + robotScore + " | " + humanScore + " You";
     }
     else if(humanScore == robotScore){
-      console.log("That's a tie!")
+    document.getElementById("result").innerHTML ="That's a tie! No points given. Score : CPU " + robotScore + " | " + humanScore + " You";
+    }
+    else if(humanScore >= 5 ){
+      do {
+        i++;
+        document.getElementsByClassName('handGesture')[i-1].removeAttribute("onclick");
+        document.getElementById("score-Balance").innerHTML = "You won ! Congratulations! 😁";
+      }  
+      while (i <=3);
+     
+    }
+    else if(robotScore >= 5 ){
+      do {
+        i++;
+        document.getElementsByClassName('handGesture')[i-1].removeAttribute("onclick");
+        document.getElementById("score-Balance").innerHTML = "You lost ! 😥";
+      }
+      while (i <=3);
+      
+  
     }
     else{
-      console.log("The robot race has won!")
+      document.getElementById("result").innerHTML ="The computer has won! Score : CPU "+ robotScore + " | " + humanScore + " You";
     }
+    
   }
-game()
