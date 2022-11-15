@@ -1,4 +1,4 @@
-# Rock Paper Scissors
+# Rock Paper Scissors ✊✋✌
  Pedra papel tesoura - Projeto The Odin Project <br>
  
 Test 1 <br>
