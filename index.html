@@ -19,7 +19,7 @@
           <img
             class="handGesture"
             src="./img/pedra.png"
-            onclick="game('rock')"
+            onclick="game('rock'); log()"
             alt="rock hand gesture"
             width="100"
             height="100"
@@ -27,7 +27,7 @@
           <img
             class="handGesture"
             src="./img/papel.png"
-            onclick="game('paper')"
+            onclick="game('paper'); log()"
             alt="paper hand gesture"
             width="100"
             height="100"
@@ -35,12 +35,13 @@
           <img
             class="handGesture"
             src="./img/tesoura.png"
-            onclick="game('scissors')"
+            onclick="game('scissors'); log()"
             alt="scissors hand gesture"
             width="100"
             height="100"
           />
           <p id="result"></p>
+          <div id="playAgain"></div>
         </div>
         <footer class="footerArea">Copyright © by Ravi Masi</footer>
       </div>

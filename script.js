@@ -1,5 +1,12 @@
   const computerSelection = getComputerChoice();
-  let i = 0
+  function addZero(j) {
+    new Date()
+    if (j < 10) {j = "0" + j}
+    return j;
+  }
+  let Gesture = document.getElementsByClassName('handGesture')
+   
+    
   let humanScore = 0
   let robotScore = 0
   
@@ -15,28 +22,31 @@
     }
     else{
       return("Rock")
-    }
-    
+    } 
   }
-  const arrayResult = []
   function playRound(playerSelection, computerSelection){
+  const d = new Date()
+  let h = addZero(d.getHours());
+  let m = addZero(d.getMinutes());
+  let s = addZero(d.getSeconds());
+  let time = h + ":" + m + ":" + s;
     if(playerSelection.toUpperCase() === computerSelection.toUpperCase()){
-      arrayResult.push("Thats a tie!")
+      document.getElementById("result").innerHTML += "Log: " + time +("| Thats a tie! <br>")
     }
     else if(playerSelection.toUpperCase() == "PAPER" & computerSelection.toUpperCase() == "ROCK"){
-      arrayResult.push("You've won 1point! Congratulations")
+      document.getElementById("result").innerHTML += "Log: " + time + ("| You've won 1 point! Congratulations <br>")
       humanScore ++;
     }
     else if(playerSelection.toUpperCase() == "ROCK" & computerSelection.toUpperCase() == "SCISSORS"){
-      arrayResult.push("You've won 1 point! Congratulations")
+      document.getElementById("result").innerHTML += "Log: " + time + ("| You've won 1 point! Congratulations <br>")
       humanScore ++;
     }
     else if(playerSelection.toUpperCase() == "SCISSORS" & computerSelection.toUpperCase() == "PAPER"){
-      arrayResult.push("You've won 1 point! Congratulations")
+      document.getElementById("result").innerHTML += "Log: " + time + ("| You've won 1 point! Congratulations <br>")
       humanScore ++;
     }
     else{
-      console.log("Computer won 1 point!")
+      document.getElementById("result").innerHTML += "Log: " + time + ("| Computer won 1 point! <br>")
       robotScore ++
     }
   }
@@ -47,33 +57,22 @@ function game(playerSelection){
     console.log(robotScore)
     document.getElementById("score-Balance").innerHTML = "Score : CPU " + robotScore + " | " + humanScore + " You";
     
-    if(humanScore > robotScore){
-     document.getElementById("result").innerHTML = "That's a win! +1 point. Score : CPU " + robotScore + " | " + humanScore + " You";
-    }
-    else if(humanScore == robotScore){
-    document.getElementById("result").innerHTML ="That's a tie! No points given. Score : CPU " + robotScore + " | " + humanScore + " You";
-    }
-    else if(humanScore >= 5 ){
-      do {
-        i++;
-        document.getElementsByClassName('handGesture')[i-1].removeAttribute("onclick");
+    
+    if(humanScore >= 5 ){
+      for (let index = 0; index < Gesture.length; index++) {
+        Gesture[index].removeAttribute("onclick")
+        console.log(index + " e "+ Gesture.length)
+      }
         document.getElementById("score-Balance").innerHTML = "You won ! Congratulations! 😁";
-      }  
-      while (i <=3);
-     
+   
     }
-    else if(robotScore >= 5 ){
-      do {
-        i++;
-        document.getElementsByClassName('handGesture')[i-1].removeAttribute("onclick");
+
+    else if(robotScore >= 5){
+      for (let index = 0; index < Gesture.length; index++) {
+        Gesture[index].removeAttribute("onclick")
+        console.log(index + " e "+ Gesture.length)
+      }
         document.getElementById("score-Balance").innerHTML = "You lost ! 😥";
       }
-      while (i <=3);
-      
-  
-    }
-    else{
-      document.getElementById("result").innerHTML ="The computer has won! Score : CPU "+ robotScore + " | " + humanScore + " You";
-    }
     
   }
