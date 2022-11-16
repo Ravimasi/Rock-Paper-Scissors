@@ -51,7 +51,7 @@
     }
     else{
       robotScore ++
-      document.getElementById("result").innerHTML += "[Log: "+ time + ("]: Computer won 1 point! " +  robotScore + " Vs "+ humanScore + "<br>")
+      document.getElementById("result").innerHTML += "[Log: "+ time + ("]: Computer chose " + computerSelection + " and won 1 point! " +  robotScore + " Vs "+ humanScore + "<br>")
       
     }
     
