@@ -12,14 +12,15 @@
     <div class="container">
       <div class="content">
         <header class="header-area"><p>Rock Paper Scissors</p></header>
+        <p id="rule">First to get 5 points, wins!</p>
         <section class="score-area">
-          <p id="score-Balance">Score : CPU 0 | 0 You</p>
+          <p id="score-Balance">Score :🤖 CPU 0 VS 0 You 👱‍♂️</p>
         </section>
         <div class="button-area">
           <img
             class="handGesture"
             src="./img/pedra.png"
-            onclick="game('rock'); log()"
+            onclick="game('rock')"
             alt="rock hand gesture"
             width="100"
             height="100"
@@ -27,7 +28,7 @@
           <img
             class="handGesture"
             src="./img/papel.png"
-            onclick="game('paper'); log()"
+            onclick="game('paper') "
             alt="paper hand gesture"
             width="100"
             height="100"
@@ -35,15 +36,27 @@
           <img
             class="handGesture"
             src="./img/tesoura.png"
-            onclick="game('scissors'); log()"
+            onclick="game('scissors')"
             alt="scissors hand gesture"
             width="100"
             height="100"
           />
           <p id="result"></p>
-          <div id="playAgain"></div>
         </div>
-        <footer class="footerArea">Copyright © by Ravi Masi</footer>
+        <footer class="footerArea">
+          <p>Copyright © by&nbsp;</p>
+
+          <a href="https://github.com/Ravimasi"
+            >Ravi Masi
+            <img
+              id="githubIcon"
+              src="./img/githubIcon.png"
+              alt=""
+              width="17"
+              height="17"
+              srcset=""
+          /></a>
+        </footer>
       </div>
     </div>
     <script src="script.js"></script>
